@@ -4,7 +4,7 @@ import Form from "./posts/components/Form";
 import List from "./posts/components/List";
 import { useEffect,  useState } from "react";
 import getData from "./posts/lib/api";
-import Register from "./auth/register/register";
+import Register from "./auth/register/page";
 
 function Page() {
   const [data, setData] = useState([]);
