@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/app/posts/lib/api.js", "src/app/api/passages/route.js", "src/app/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]
