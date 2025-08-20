@@ -1,6 +1,8 @@
-export default async function getData() {
+
+
+export default async function getData({offset, limit} ) {
   try {
-    const res = await fetch("/api/passages", {
+    const res = await fetch(`/api/passages?offset=${offset}&limit=${limit}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" }
     });
@@ -11,7 +13,8 @@ export default async function getData() {
 
     const results = await res.json();
 
-    return results.slice(0, 10).map(item => ({
+
+    return results.map(item => ({
       id: item.id,
       title: item.title,
       content: item.content,

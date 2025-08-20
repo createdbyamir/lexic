@@ -4,14 +4,14 @@ import Form from "./posts/components/Form";
 import List from "./posts/components/List";
 import { useEffect,  useState } from "react";
 import getData from "./posts/lib/api";
-import Register from "./auth/register/page";
+import Link from "next/link";
 
 function Page() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     async function load() {
-      const items = await getData();
+      const items = await getData({ offset: 0, limit: 4 });
       setData(items);
     }
     load();
@@ -26,8 +26,12 @@ function Page() {
     <div className="min-h-screen flex flex-col items-center justify-center space-y-6 p-6">
       <h1 className="text-4xl font-bold text-center">Welcome to the Polyglot App!</h1>
       <Form onSuccess={handleAdd} />
-      <List data={data} />
-      <Register />
+      <div className="list">
+          <List data={data} />
+          <Link href="/passages" className="text-blue-500 hover:underline mt-4">
+            View All Passages
+          </Link>
+      </div>
     </div>
 
   );

@@ -21,12 +21,16 @@ export async function POST(request) {
   return Response.json(data, { status: response.status });
 }
 
-export async function GET() {
+export async function GET(request) {
   process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
   const key = process.env.API_KEY;
   const apiUrl = process.env.API_URL;
+  const { searchParams } = new URL(request.url);
+  const offset = searchParams.get("offset") || 0;
+  const limit = searchParams.get("limit") || 10;
 
-  const response = await fetch(`${apiUrl}/passages`, {
+
+  const response = await fetch(`${apiUrl}/passages?offset=${offset}&limit=${limit}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
