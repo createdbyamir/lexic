@@ -39,7 +39,7 @@ export async function GET(request) {
     }
   }); 
 
-  const data = await json();
+  const data = await response.json();
   console.log("GET response:", data);
   return Response.json(data, { status: response.status });
 }
