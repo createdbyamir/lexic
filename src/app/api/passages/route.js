@@ -21,7 +21,7 @@ export async function POST(request) {
   return Response.json(data, { status: response.status });
 }
 
-/* export async function GET(request) {
+export async function GET(request) {
   process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
   const key = process.env.API_KEY;
   const apiUrl = process.env.API_URL;
@@ -43,8 +43,9 @@ export async function POST(request) {
   console.log("GET response:", data);
   return Response.json(data, { status: response.status });
 }
-*/
 
-export async function GET(request) {
+
+/* export async function GET(request) {
   return Response.json([], { status: 200 });
 }
+ */
