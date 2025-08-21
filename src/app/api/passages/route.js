@@ -21,7 +21,7 @@ export async function POST(request) {
   return Response.json(data, { status: response.status });
 }
 
-export async function GET(request) {
+/* export async function GET(request) {
   process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
   const key = process.env.API_KEY;
   const apiUrl = process.env.API_URL;
@@ -30,16 +30,21 @@ export async function GET(request) {
   const limit = searchParams.get("limit") || 10;
 
 
-  const response = await fetch(`${apiUrl}/passages?offset=${offset}&limit=${limit}`, {
+  const response =  await fetch(`${apiUrl}/passages?offset=${offset}&limit=${limit}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
       Authorization: `Bearer ${key}`
     }
-  });
+  }); 
 
-  const data = await response.json();
+  const data = await json([]);
   console.log("GET response:", data);
   return Response.json(data, { status: response.status });
+}
+*/
+
+export async function GET(request) {
+  return Response.json([], { status: 200 });
 }
