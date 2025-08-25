@@ -37,17 +37,20 @@ function PassagePage() {
 
 
   return (
-    <div className=" flex flex-col items-center justify-center space-y-6 p-6">
-      <h1 className="text-4xl font-bold text-center">Passages</h1>
+    <div className="w-full max-w-[1280px] mx-auto p-6">
+      {/*<h1 className="text-4xl font-bold text-center">Passages</h1>*/}
       <List data={data} />
       {hasMore && (
-        <a 
-          onClick={loadMore} 
-          className="text-blue-500 hover:underline cursor-pointer"
-        >
-          Load more
-        </a>
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={loadMore}
+            className="rounded-lg bg-sky-600 px-5 py-2.5 font-semibold text-white shadow hover:bg-sky-700 transition"
+          >
+            Load more
+          </button>
+        </div>
       )}
+
     </div>
 
   );

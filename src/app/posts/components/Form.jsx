@@ -1,7 +1,7 @@
 "use client";
 
-import addData from "../lib/post";
 import { useState } from "react";
+import addData from "../lib/post";
 
 export default function Form({ onSuccess }) {
   const [title, setTitle] = useState("");
@@ -18,10 +18,7 @@ export default function Form({ onSuccess }) {
     }
 
     try {
-      console.log("Submitting:", { title, content, source, language });
-
       const result = await addData(title, content, source, language);
-      console.log("Success:", result);
 
       const newItem = {
         id: Date.now(),
@@ -30,12 +27,13 @@ export default function Form({ onSuccess }) {
         source,
         language,
       };
+
       if (onSuccess) {
         onSuccess(newItem);
       }
     } catch (error) {
-        console.error("Error in onSuccess callback:", error);
-    } 
+      console.error("Error in onSuccess callback:", error);
+    }
 
     setTitle("");
     setContent("");
@@ -44,76 +42,99 @@ export default function Form({ onSuccess }) {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col space-y-4 p-6 max-w-md w-full border rounded-xl bg-white shadow-md"
-    >
-      <div className="flex flex-col">
-        <label htmlFor="title" className="font-medium mb-1">
-          Title
-        </label>
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          type="text"
-          id="title"
-          name="title"
-          required
-          className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
+    <section className="mt-12">
+      <div className="container mx-auto px-4">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white rounded-2xl shadow-lg p-8 space-y-6"
+        >
+          <h2 className="font-heading text-2xl font-bold text-gray-900">
+            Add a New Passage
+          </h2>
 
-      <div className="flex flex-col">
-        <label htmlFor="content" className="font-medium mb-1">
-          Content
-        </label>
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          id="content"
-          name="content"
-          required
-          rows={4}
-          className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
+          {/* Title */}
+          <div>
+            <label
+              htmlFor="title"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Title
+            </label>
+            <input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              type="text"
+              id="title"
+              required
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-sky-500 focus:ring-2 focus:ring-sky-500"
+            />
+          </div>
 
-      <div className="flex flex-col">
-        <label htmlFor="source" className="font-medium mb-1">
-          Source
-        </label>
-        <input
-          value={source}
-          onChange={(e) => setSource(e.target.value)}
-          type="text"
-          id="source"
-          name="source"
-          required
-          className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
+          {/* Content */}
+          <div>
+            <label
+              htmlFor="content"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Content
+            </label>
+            <textarea
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              id="content"
+              rows={4}
+              required
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-sky-500 focus:ring-2 focus:ring-sky-500"
+            />
+          </div>
 
-      <div className="flex flex-col">
-        <label htmlFor="language" className="font-medium mb-1">
-          Language
-        </label>
-        <input
-          value={language}
-          onChange={(e) => setLanguage(e.target.value)}
-          type="text"
-          id="language"
-          name="language"
-          required
-          className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
+          {/* Source */}
+          <div>
+            <label
+              htmlFor="source"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Source
+            </label>
+            <input
+              value={source}
+              onChange={(e) => setSource(e.target.value)}
+              type="text"
+              id="source"
+              required
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-sky-500 focus:ring-2 focus:ring-sky-500"
+            />
+          </div>
 
-      <button
-        type="submit"
-        className="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition"
-      >
-        Submit
-      </button>
-    </form>
+          {/* Language */}
+          <div>
+            <label
+              htmlFor="language"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Language
+            </label>
+            <input
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
+              type="text"
+              id="language"
+              required
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-sky-500 focus:ring-2 focus:ring-sky-500"
+            />
+          </div>
+
+          {/* Submit */}
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              className="rounded-lg bg-sky-600 px-5 py-2.5 font-semibold text-white shadow hover:bg-sky-700 transition"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
   );
 }

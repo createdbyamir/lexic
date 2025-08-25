@@ -8,26 +8,55 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <div className="">
-      <div className="bg-gray-800 text-white shadow-md py-2 px-4 grid grid-cols-3 gap-x-12 items-center max-w-[900px] w-full mx-auto my-4 rounded-md fixed top-0 left-0 right-0">
+    <header className="fixed top-0 left-0 right-0 z-50">
+      <div className="bg-gray-900 text-white shadow-md py-3 px-6 grid grid-cols-3 items-center w-full max-w-5xl md:max-w-6xl mx-auto rounded-lg mt-4">
+        {/* Logo */}
         <div className="logo">
-          <h2 className="uppercase tracking-widest text-xl">Lexic</h2>
-          <p className="text-xs pt-1 text-gray-300">Your Words, Your World</p>
+          <h1 className="uppercase tracking-widest text-xl font-bold text-white">
+            LEXIC
+          </h1>
+          <p className="text-xs text-gray-300">Your Words, Your World</p>
         </div>
-        <nav className="flex justify-center gap-4  items-center p-4">
-          <a className="transition delay-150 duration-300 ease-in-out  hover:underline hover:underline-offset-4 hover:text-gray-400"  href="#home">Home</a>
-          <a className="transition delay-150 duration-300 ease-in-out  hover:underline hover:underline-offset-4 hover:text-gray-400"  href="#create">Create</a>
-          <a className="transition delay-150 duration-300 ease-in-out  hover:underline hover:underline-offset-4 hover:text-gray-400"  href="#passages">Passages</a>
-          {/*<Link className={`transition delay-150 duration-300 ease-in-out  hover:underline hover:underline-offset-4 hover:text-gray-400 ${pathname === "/" ? "underline underline-offset-4 text-white" : "text-gray-500"} `}  href="/">Home</Link>*/}
-          {/*<Link className={`transition-all delay-150 duration-300 ease-in-out  hover:underline hover:underline-offset-4 hover:text-gray-300 ${pathname === "/about" ? "underline underline-offset-4 text-white" : "text-gray-400"} `} href="/about">About</Link>*/}
-          {/*<Link className={`transition-all delay-150 duration-300 ease-in-out  hover:underline hover:underline-offset-4  hover:text-gray-400 ${pathname === "/passages" ? "underline underline-offset-4  text-white" : "text-gray-500"} `} href="/passages">Passages</Link>*/}
+
+        {/* Navigation (hidden for now, kept commented for reference) */}
+        <nav className="flex justify-center gap-6 items-center">
+          {/*<Link 
+            className={`transition delay-150 duration-300 ease-in-out hover:underline hover:underline-offset-4 hover:text-gray-400 ${
+              pathname === "/" ? "underline underline-offset-4 text-white" : "text-gray-500"
+            }`}
+            href="/"
+          >
+            Home
+          </Link>*/}
+          {/*<Link 
+            className={`transition-all delay-150 duration-300 ease-in-out hover:underline hover:underline-offset-4 hover:text-gray-300 ${
+              pathname === "/about" ? "underline underline-offset-4 text-white" : "text-gray-400"
+            }`} 
+            href="/about"
+          >
+            About
+          </Link>*/}
+          {/*<Link 
+            className={`transition-all delay-150 duration-300 ease-in-out hover:underline hover:underline-offset-4 hover:text-gray-400 ${
+              pathname === "/passages" ? "underline underline-offset-4 text-white" : "text-gray-500"
+            }`} 
+            href="/passages"
+          >
+            Passages
+          </Link>*/}
         </nav>
-        <div className="link justify-self-end">
-          <a className="hover:text-gray-300 delay-150 duration-300 ease-in-out" href="https://github.com/createdbyamir/lexic" target="_blank">
-            <FaGithub className="text-2xl"/>
+
+        {/* GitHub Link */}
+        <div className="justify-self-end">
+          <a
+            href="https://github.com/createdbyamir/lexic"
+            target="_blank"
+            className="text-white hover:text-sky-200 transition"
+          >
+            <FaGithub className="text-2xl" />
           </a>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
