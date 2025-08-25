@@ -71,3 +71,25 @@ export async function PUT(request) {
   console.log("PUT response:", data);
   return Response.json(data, { status: response.status });
 }
+
+// DELETE
+
+export async function DELETE(request) {
+  process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+  const key = process.env.API_KEY;
+  const apiUrl = process.env.API_URL;
+
+  const body = await request.json();
+  console.log("🟡 DELETE body:", body);
+
+  const response = await fetch(`${apiUrl}/passages/${body.id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${key}`,
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  });
+
+  return Response.json({}, { status: response.status });
+}

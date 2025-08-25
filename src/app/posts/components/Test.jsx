@@ -1,12 +1,15 @@
 import { useState } from "react";
 
+import deleteData from "../lib/delete"
+
 export default function Test() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         phone: ""
     });
-    const [editing, setEditing] = useState(false)
+    const [editing, setEditing] = useState(false);
+    const [deleting, setDeleting] = useState(false);
 
     
 
@@ -46,7 +49,7 @@ export default function Test() {
                             Save
                         </button>
                         <button
-                            onClick={(e) => setEditing(false)}
+                            onClick={(e) => deleteData(14)}
                         >
                             Cancel</button>
                     </form>
@@ -61,6 +64,11 @@ export default function Test() {
                             onClick={(e) => setEditing(true)}
                         > 
                             Edit
+                        </button>
+                        <button
+                            onClick={(e) => deleteData(13)}
+                        > 
+                            Delete
                         </button>
                     </div>
             }

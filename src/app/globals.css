@@ -7,3 +7,6 @@
     @apply max-w-container w-full mx-auto px-4;
   }
 }
+
+body { padding-top: 100px; }
+html { scroll-behavior: smooth;}
