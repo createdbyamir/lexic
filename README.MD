@@ -18,15 +18,15 @@ Lexic is a Next.js language learning app where you can create passages, store th
 ![Desktop Screenshot](/screenshots/desktop.png)
 
 ### Form + Passages
-![Form and Passages Screenshot](/screenshots/form-passages.png)
+![Form and Passages Screenshot](/screenshots/form-passagesjpg)
 
 ### Edit Flow
-![Edit Screenshot](/screenshots/edit.png)
+![Edit Screenshot](/screenshots/edit.jpg)
 
 ### Mobile View
-<img src="/screenshots/mobile-1.png" width="250" />
-<img src="/screenshots/mobile-2.png" width="250" />
-<img src="/screenshots/mobile-3.png" width="250" />
+<img src="/screenshots/mobile-1.jpg" width="250" />
+<img src="/screenshots/mobile-2.jpg" width="250" />
+<img src="/screenshots/mobile-3.jpg" width="250" />
 
 
 ## 🚀 Tech Stack
