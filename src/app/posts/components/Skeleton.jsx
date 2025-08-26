@@ -4,7 +4,7 @@ export default function Skeleton() {
   return (
     <div>
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl mx-auto mt-10">
-        {[1,2,3,4,5,6].map((item) => (
+        {[1,2,3,4].map((item) => (
           <li
             key={item}
             className="p-6 border rounded-lg bg-white shadow hover:shadow-md transition animate-pulse"

@@ -7,9 +7,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const sora = Sora({ subsets: ["latin"], variable: "--font-sora" });
 
 export const metadata = {
-  title: "Polyglot App",
-  description: "Learn and practice languages with ease",
+  title: "Lexic – Polyglot Learning App",
+  description:
+    "Lexic is a responsive Next.js app for learning and practicing languages. Create, edit, and manage passages with a clean UI built using Next and Tailwind CSS.",
 };
+
 
 export default function RootLayout({
   children,

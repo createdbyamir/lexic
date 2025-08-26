@@ -43,7 +43,7 @@ export default function Form({ onSuccess }) {
 
   return (
     <section className="mt-12">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <form
           onSubmit={handleSubmit}
           className="bg-white rounded-2xl shadow-lg p-8 space-y-6"

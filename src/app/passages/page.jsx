@@ -1,45 +1,45 @@
 "use client";
 
 import List from "../posts/components/List";
-import { useEffect,  useState } from "react";
+import { useEffect, useState } from "react";
 import getData from "../posts/lib/api";
 
 function PassagePage() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   
-  const limit = 6;
+  const limit = 4;
   const [offset, setOffset] = useState(0);
   const [hasMore, setHasMore] = useState(true);
 
   const loadMore = (e) => {
     e.preventDefault();
+    setLoading(true);
     getData({ offset: offset + limit, limit }).then(newData => {
       setData(prevData => [...prevData, ...newData]);
       setOffset(prevOffset => prevOffset + limit);
+      setLoading(false);
 
-
-    if (newData.length < limit) {
-      setHasMore(false);
-    }
-      
+      if (newData.length < limit) {
+        setHasMore(false);
+      }
     });
   };
 
-  
-
   useEffect(() => {
+    setLoading(true);
     async function load() {
-      const items = await getData({ offset: 0, limit: 6 });
+      const items = await getData({ offset: 0, limit });
       setData(items);
+      setLoading(false);
     }
     load();
   }, []);
 
-
   return (
     <div className="w-full max-w-[1280px] mx-auto p-6">
-      {/*<h1 className="text-4xl font-bold text-center">Passages</h1>*/}
-      <List data={data} />
+      <List data={data} loading={loading} />
       {hasMore && (
         <div className="flex justify-center mt-8">
           <button
@@ -50,10 +50,8 @@ function PassagePage() {
           </button>
         </div>
       )}
-
     </div>
-
   );
 }
 
-export default PassagePage
+export default PassagePage;

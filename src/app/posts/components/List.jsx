@@ -4,8 +4,8 @@ import { useState } from "react";
 import { EditData } from "./Edit";
 import { FaEdit } from "react-icons/fa";
 
-export default function List({ data, limit = null, onDelete }) {
-  if (!data || data.length === 0) {
+export default function List({ data, limit = null, onDelete, loading = false }) {
+  if (!loading && (!data || data.length === 0)) {
     return (
       <div className="container mx-auto px-4 max-w-5xl mt-12">
         <p className="text-center text-gray-600">No passages yet.</p>
@@ -21,7 +21,7 @@ export default function List({ data, limit = null, onDelete }) {
       <h2 className="font-heading text-2xl font-bold text-gray-900 mb-6">
         Passages
       </h2>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
         {itemsToShow.map((item) => (
           <li
             key={item.id}

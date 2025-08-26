@@ -12,6 +12,22 @@ Lexic is a Next.js language learning app where you can create passages, store th
 - **Add, Edit** – Demonstrates CRU functionality (create, update passages).
 - **Skeleton Loading** – Placeholder skeletons improve perceived performance while data loads.
 
+## 📸 Screenshots
+
+### Desktop
+![Desktop Screenshot](/screenshots/desktop.png)
+
+### Form + Passages
+![Form and Passages Screenshot](/screenshots/form-passages.png)
+
+### Edit Flow
+![Edit Screenshot](/screenshots/edit.png)
+
+### Mobile View
+<img src="/screenshots/mobile-1.png" width="250" />
+<img src="/screenshots/mobile-2.png" width="250" />
+<img src="/screenshots/mobile-3.png" width="250" />
+
 
 ## 🚀 Tech Stack
 

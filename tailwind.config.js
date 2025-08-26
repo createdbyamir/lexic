@@ -7,9 +7,9 @@ module.exports = {
     extend: {
       container: {
         center: true,
-        padding: "1rem", // adjust to taste, e.g. "2rem"
+        padding: "1rem",
         screens: {
-          "2xl": "1200px", // cap width at your container size
+          "2xl": "1200px", 
         },
       },
       fontFamily: {

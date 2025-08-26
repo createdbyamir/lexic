@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="bg-gray-900 text-white shadow-md py-3 px-6 grid grid-cols-3 items-center w-full max-w-5xl md:max-w-6xl mx-auto rounded-lg mt-4">
+      <div className="bg-gray-900 text-white shadow-md py-3 px-6 grid grid-cols-3 items-center w-full max-w-5xl md:max-w-[1170px] mx-auto rounded-lg mt-4">
         {/* Logo */}
         <div className="logo">
           <h1 className="uppercase tracking-widest text-xl font-bold text-white">
