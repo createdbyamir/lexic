@@ -98,3 +98,5 @@ export async function DELETE(request) {
 
   return Response.json({}, { status: response.status });
 }
+
+// console.log("hello world");
