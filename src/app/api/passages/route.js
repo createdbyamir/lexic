@@ -26,19 +26,24 @@ export async function GET(request) {
   process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
   const key = process.env.API_KEY;
   const apiUrl = process.env.API_URL;
+    console.log("API key exists:", !!key);
+  console.log("API URL:", apiUrl);
   const { searchParams } = new URL(request.url);
   const offset = searchParams.get("offset") || 0;
   const limit = searchParams.get("limit") || 10;
 
 
-  const response =  await fetch(`${apiUrl}/passages?offset=${offset}&limit=${limit}`, {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${key}`
+  const response = await fetch(
+    `${apiUrl}/passages?offset=${offset}&limit=${limit}`,
+    {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${key}`,
+      },
     }
-  }); 
+  );
 
   const data = await response.json();
   console.log("GET response:", data);

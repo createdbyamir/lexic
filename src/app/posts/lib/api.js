@@ -14,7 +14,7 @@ export default async function getData({offset, limit} ) {
     const results = await res.json();
 
 
-    return results.map(item => ({
+    return results.data.map(item => ({
       id: item.id,
       title: item.title,
       content: item.content,
